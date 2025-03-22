@@ -1,0 +1,45 @@
+
+###
+
+GET http://localhost:5000/api/boardings
+
+#get bookings
+###
+GET http://localhost:5000/api/bookings
+
+#create booking
+###
+POST http://localhost:5000/api/bookings
+Content-Type: application/json
+
+{
+    "roomId": "5f8f4b3b7f3b9b0017f3b9b0",
+    "name": "John Doe",
+    "email": "johnDoe@gmail.com",
+    "phone": "1234567890",
+    "checkInDate": "2020-10-20",
+
+
+}
+
+#update reservation
+###
+PUT http://localhost:5000/apibookings
+Content-Type: application/json
+
+{
+    "roomId": "5f8f4b3b7f3b9b0017f3b9b0",
+    "name": "updated name",
+    "email": "updated email",
+    "phone": "updated phone",
+
+    
+}
+
+#delete reservation #should drop the ID here to delete the reservation
+###
+DELETE http://localhost:5000/api/bookings 
+
+#get single booking or reservation
+###
+GET http://localhost:5000/api/bookings
