@@ -1,26 +1,26 @@
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const { errorHandler } = require("./middleware/errorHandler");
-const app = express();
 const connectDB = require("./config/db");
-const boardingsRoutes = require("./routes/boardingRoutes");
-const bookingsRoutes = require("./routes/bookingRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
+const reservationRoutes = require("./routes/reservationRoutes");
+const boardingRoutes = require("./routes/boardingRoutes");
 
-const e = require("express");
-
+const app = express();
 const port = process.env.PORT || 5000;
 
 // connect to database
 connectDB();
 
-// set up middleware
+// setup middlewares
 app.use(express.json());
 
-// set up routes
-app.use("/api/boardings", boardingsRoutes);
-app.use("/api/bookings", bookingsRoutes);
+// setup routes
+app.use("/api/bookings", bookingRoutes);
+app.use("/api/reservations", reservationRoutes);
+app.use("/api/boardings", boardingRoutes);
 
 app.use(errorHandler);
 
-
-app.listen(port, () => console.log(`listening on port ${port}`));
+app.listen(port, () => console.log(`listening on on port ${port}`));
